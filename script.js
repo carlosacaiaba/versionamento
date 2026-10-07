@@ -7,7 +7,7 @@ const initialProducts = [
     { id: 5, name: "Webcam Full HD 1080p", price: 45.00, image: "https://unsplash.com" },
     { id: 6, name: "Cadeira Gaming Ergonómica", price: 159.90, image: "https://unsplash.com" },
     { id: 7, name: "Disco Externo SSD 1TB", price: 79.95, image: "https://unsplash.com" },
-    { id: 8, name: "Tapete de Rato XL RGB", price: 19.99, image: "https://unsplash.com" },
+    { id: 8, name: "mouse pad XL", price: 19.99, image: "https://unsplash.com" },
     { id: 9, name: "Microfone Condensador USB", price: 54.00, image: "https://unsplash.com" },
     { id: 10, name: "Coluna Bluetooth Portátil", price: 34.90, image: "https://unsplash.com" },
     { id: 11, name: "Suporte Articulado Monitor", price: 39.90, image: "https://unsplash.com" },
