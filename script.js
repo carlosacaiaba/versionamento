@@ -1,6 +1,6 @@
 // Base de dados inicial simulada com links de imagens reais públicas
 const initialProducts = [
-    { id: 1, name: "Rato Sem Fios Pro", price: 29.99, image: "https://unsplash.com" },
+    { id: 1, name: "mouse Sem Fios Pro", price: 29.99, image: "https://unsplash.com" },
     { id: 2, name: "Teclado Mecânico RGB", price: 74.50, image: "https://unsplash.com" },
     { id: 3, name: "Monitor UltraWide 29'", price: 189.90, image: "https://unsplash.com" }
 ];
