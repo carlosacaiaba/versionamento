@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sistema de Loja com CRUD</title>
+    <title>TechStore - Sistema de Loja</title>
 
-    <!-- CSS principal -->
+    <!-- CSS -->
     <link rel="stylesheet" href="CSS/style.css">
 
-    <!-- Font Awesome - Ícones -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
 
 <body>
 
-    <!-- =========================
-         MENU SUPERIOR
-    ========================== -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
     <nav class="navbar">
 
         <div class="nav-logo">
@@ -29,22 +32,31 @@
 
         <div class="nav-menu">
 
-            <a href="#"
-               class="nav-link active"
-               id="view-shop-btn">
-
+            <a
+                href="#"
+                class="nav-link active"
+                id="view-shop-btn"
+            >
                 <i class="fa-solid fa-house"></i>
                 Loja
-
             </a>
 
-            <a href="#"
-               class="nav-link"
-               id="view-admin-btn">
-
+            <a
+                href="#"
+                class="nav-link"
+                id="view-admin-btn"
+            >
                 <i class="fa-solid fa-gear"></i>
-                Admin
+                Produtos
+            </a>
 
+            <a
+                href="#"
+                class="nav-link"
+                id="view-clients-btn"
+            >
+                <i class="fa-solid fa-users"></i>
+                Clientes
             </a>
 
         </div>
@@ -52,19 +64,21 @@
     </nav>
 
 
-    <!-- =========================
-         CONTEÚDO PRINCIPAL
-    ========================== -->
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
 
     <main class="container">
 
-        <!-- =========================
-             VISÃO DA LOJA
-        ========================== -->
 
-        <div id="shop-view" class="view-section active">
+        <!-- =================================================
+             LOJA
+        ================================================== -->
 
-            <!-- Pesquisa -->
+        <div
+            id="shop-view"
+            class="view-section active"
+        >
 
             <div class="search-container">
 
@@ -79,11 +93,9 @@
             </div>
 
 
-            <!-- Layout da loja -->
-
             <div class="shop-layout">
 
-                <!-- Produtos -->
+                <!-- PRODUTOS -->
 
                 <section class="products-section">
 
@@ -93,13 +105,13 @@
 
                     <div
                         id="products-grid"
-                        class="products-grid">
-                    </div>
+                        class="products-grid"
+                    ></div>
 
                 </section>
 
 
-                <!-- Carrinho -->
+                <!-- CARRINHO -->
 
                 <aside class="cart-section">
 
@@ -110,9 +122,8 @@
 
                     <div
                         id="cart-items"
-                        class="cart-items">
-                    </div>
-
+                        class="cart-items"
+                    ></div>
 
                     <div class="cart-total">
 
@@ -125,15 +136,12 @@
 
                     </div>
 
-
                     <button
                         id="checkout-btn"
-                        class="btn btn-success w-100">
-
+                        class="btn btn-success w-100"
+                    >
                         <i class="fa-solid fa-check"></i>
-
                         Finalizar Compra
-
                     </button>
 
                 </aside>
@@ -143,37 +151,33 @@
         </div>
 
 
-        <!-- =========================
-             VISÃO ADMINISTRATIVA
-        ========================== -->
 
-        <div id="admin-view" class="view-section">
+        <!-- =================================================
+             PRODUTOS / ADMIN
+        ================================================== -->
+
+        <div
+            id="admin-view"
+            class="view-section"
+        >
 
             <div class="admin-header">
 
                 <h2>
-
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                    Gestão de Inventário
-
+                    <i class="fa-solid fa-box"></i>
+                    Gestão de Produtos
                 </h2>
-
 
                 <button
                     class="btn btn-primary"
-                    id="open-add-modal-btn">
-
+                    id="open-add-modal-btn"
+                >
                     <i class="fa-solid fa-plus"></i>
-
                     Novo Produto
-
                 </button>
 
             </div>
 
-
-            <!-- Tabela -->
 
             <div class="table-responsive">
 
@@ -183,30 +187,97 @@
 
                         <tr>
 
-                            <th>
-                                Imagem
-                            </th>
-
-                            <th>
-                                Produto
-                            </th>
-
-                            <th>
-                                Preço
-                            </th>
-
-                            <th>
-                                Ações
-                            </th>
+                            <th>Imagem</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
 
                         </tr>
 
                     </thead>
 
+                    <tbody id="admin-table-body"></tbody>
 
-                    <tbody id="admin-table-body">
+                </table>
 
-                    </tbody>
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CLIENTES
+        ================================================== -->
+
+        <div
+            id="clients-view"
+            class="view-section"
+        >
+
+            <div class="admin-header">
+
+                <div>
+
+                    <h2>
+                        <i class="fa-solid fa-users"></i>
+                        Gestão de Clientes
+                    </h2>
+
+                    <p class="section-description">
+                        Cadastre e gerencie os clientes da loja.
+                    </p>
+
+                </div>
+
+                <button
+                    class="btn btn-primary"
+                    id="open-add-client-btn"
+                >
+                    <i class="fa-solid fa-user-plus"></i>
+                    Novo Cliente
+                </button>
+
+            </div>
+
+
+            <!-- PESQUISA DE CLIENTES -->
+
+            <div class="search-container">
+
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+                <input
+                    type="text"
+                    id="client-search-input"
+                    placeholder="Pesquisar por nome, e-mail ou CPF..."
+                >
+
+            </div>
+
+
+            <!-- TABELA DE CLIENTES -->
+
+            <div class="table-responsive">
+
+                <table class="admin-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>CPF</th>
+                            <th>Cidade</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="clients-table-body"></tbody>
 
                 </table>
 
@@ -217,35 +288,31 @@
     </main>
 
 
-    <!-- =========================
-         MODAL DE PRODUTO
-    ========================== -->
+
+    <!-- =====================================================
+         MODAL PRODUTO
+    ====================================================== -->
 
     <div
         id="product-modal"
-        class="modal">
+        class="modal"
+    >
 
         <div class="modal-content">
 
             <span
                 class="close-modal"
-                id="close-modal-btn">
-
+                id="close-modal-btn"
+            >
                 &times;
-
             </span>
 
-
             <h2 id="modal-title">
-
                 Cadastrar Produto
-
             </h2>
 
 
             <form id="product-form">
-
-                <!-- ID oculto -->
 
                 <input
                     type="hidden"
@@ -253,14 +320,10 @@
                 >
 
 
-                <!-- Nome -->
-
                 <div class="form-group">
 
                     <label for="prod-name">
-
                         Nome do Produto
-
                     </label>
 
                     <input
@@ -273,14 +336,10 @@
                 </div>
 
 
-                <!-- Preço -->
-
                 <div class="form-group">
 
                     <label for="prod-price">
-
                         Preço (€)
-
                     </label>
 
                     <input
@@ -295,14 +354,10 @@
                 </div>
 
 
-                <!-- Imagem -->
-
                 <div class="form-group">
 
                     <label for="prod-image">
-
                         URL da Imagem
-
                     </label>
 
                     <input
@@ -314,16 +369,185 @@
                 </div>
 
 
-                <!-- Botão -->
+                <button
+                    type="submit"
+                    class="btn btn-success w-100"
+                >
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Salvar Produto
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL CLIENTE
+    ====================================================== -->
+
+    <div
+        id="client-modal"
+        class="modal"
+    >
+
+        <div class="modal-content client-modal-content">
+
+            <span
+                class="close-modal"
+                id="close-client-modal-btn"
+            >
+                &times;
+            </span>
+
+
+            <h2 id="client-modal-title">
+                Cadastrar Cliente
+            </h2>
+
+
+            <form id="client-form">
+
+                <input
+                    type="hidden"
+                    id="client-id"
+                >
+
+
+                <!-- NOME -->
+
+                <div class="form-group">
+
+                    <label for="client-name">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="client-name"
+                        required
+                        placeholder="Ex: João da Silva"
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="client-email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="client-email"
+                        required
+                        placeholder="cliente@email.com"
+                    >
+
+                </div>
+
+
+                <!-- TELEFONE -->
+
+                <div class="form-group">
+
+                    <label for="client-phone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="client-phone"
+                        placeholder="(11) 99999-9999"
+                    >
+
+                </div>
+
+
+                <!-- CPF -->
+
+                <div class="form-group">
+
+                    <label for="client-cpf">
+                        CPF
+                    </label>
+
+                    <input
+                        type="text"
+                        id="client-cpf"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                    >
+
+                </div>
+
+
+                <!-- ENDEREÇO -->
+
+                <div class="form-group">
+
+                    <label for="client-address">
+                        Endereço
+                    </label>
+
+                    <input
+                        type="text"
+                        id="client-address"
+                        placeholder="Rua, número, bairro"
+                    >
+
+                </div>
+
+
+                <!-- CIDADE -->
+
+                <div class="form-group">
+
+                    <label for="client-city">
+                        Cidade
+                    </label>
+
+                    <input
+                        type="text"
+                        id="client-city"
+                        placeholder="São Paulo"
+                    >
+
+                </div>
+
+
+                <!-- CEP -->
+
+                <div class="form-group">
+
+                    <label for="client-cep">
+                        CEP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="client-cep"
+                        placeholder="00000-000"
+                        maxlength="9"
+                    >
+
+                </div>
+
 
                 <button
                     type="submit"
                     class="btn btn-success w-100"
-                    id="save-product-btn">
+                >
 
-                    <i class="fa-solid fa-floppy-disk"></i>
+                    <i class="fa-solid fa-user-check"></i>
 
-                    Salvar
+                    Salvar Cliente
 
                 </button>
 
@@ -334,26 +558,24 @@
     </div>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          RODAPÉ
-    ========================== -->
+    ====================================================== -->
 
     <footer class="footer">
 
         <p>
-
             &copy; 2026 TechStore.
             Todos os direitos reservados.
             Desenvolvido com HTML, CSS e JS.
-
         </p>
 
     </footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
