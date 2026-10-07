@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Sistema de Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Minha Loja Tech</h1>
+        <div class="cart-icon-container">
+            <span id="cart-count">0</span>🛒 Itens
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Vitrine de Produtos -->
+        <section class="products-section">
+            <h2>Nossos Produtos</h2>
+            <div id="products-grid" class="products-grid">
+                <!-- Inserido dinamicamente via JS -->
+            </div>
+        </section>
+
+        <!-- Painel do Carrinho de Compras -->
+        <aside class="cart-section">
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items" class="cart-items">
+                <!-- Itens do carrinho aparecem aqui -->
+                <p class="empty-cart">O carrinho está vazio.</p>
+            </div>
+            <div class="cart-total">
+                <h3>Total: <span id="cart-total-value">0.00€</span></h3>
+            </div>
+            <button id="checkout-btn" class="btn-checkout">Finalizar Compra</button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
