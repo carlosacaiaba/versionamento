@@ -1,9 +1,20 @@
 // Base de dados inicial simulada com links de imagens reais públicas
 const initialProducts = [
-    { id: 1, name: "mouse Sem Fios Pro", price: 29.99, image: "https://unsplash.com" },
+    { id: 1, name: "Mouse Sem Fio Pro", price: 29.99, image: "https://unsplash.com" },
     { id: 2, name: "Teclado Mecânico RGB", price: 74.50, image: "https://unsplash.com" },
-    { id: 3, name: "Monitor UltraWide 29'", price: 189.90, image: "https://unsplash.com" }
+    { id: 3, name: "Monitor UltraWide 29'", price: 189.90, image: "https://unsplash.com" },
+    { id: 4, name: "Auscultadores Bluetooth ANC", price: 89.99, image: "https://unsplash.com" },
+    { id: 5, name: "Webcam Full HD 1080p", price: 45.00, image: "https://unsplash.com" },
+    { id: 6, name: "Cadeira Gaming Ergonómica", price: 159.90, image: "https://unsplash.com" },
+    { id: 7, name: "Disco Externo SSD 1TB", price: 79.95, image: "https://unsplash.com" },
+    { id: 8, name: "Tapete de Rato XL RGB", price: 19.99, image: "https://unsplash.com" },
+    { id: 9, name: "Microfone Condensador USB", price: 54.00, image: "https://unsplash.com" },
+    { id: 10, name: "Coluna Bluetooth Portátil", price: 34.90, image: "https://unsplash.com" },
+    { id: 11, name: "Suporte Articulado Monitor", price: 39.90, image: "https://unsplash.com" },
+    { id: 12, name: "Carregador Sem Fios Qi", price: 22.50, image: "https://unsplash.com" },
+    { id: 13, name: "Hub USB-C 6 em 1", price: 27.80, image: "https://unsplash.com" }
 ];
+
 
 // Carrega dados do LocalStorage ou assume a lista inicial padrão
 let products = JSON.parse(localStorage.getItem('store_products')) || initialProducts;
