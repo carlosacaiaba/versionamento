@@ -1,110 +1,362 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sistema de Loja com CRUD</title>
-    <!-- Ícones FontAwesome Corrigidos -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Font Awesome - Ícones -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- Menu Superior de Navegação -->
+    <!-- =========================
+         MENU SUPERIOR
+    ========================== -->
     <nav class="navbar">
+
         <div class="nav-logo">
-            <i class="fa-solid fa-shop"></i> TechStore
+            <i class="fa-solid fa-shop"></i>
+            TechStore
         </div>
+
         <div class="nav-menu">
-            <a href="#" class="nav-link active" id="view-shop-btn"><i class="fa-solid fa-house"></i> Loja</a>
-            <a href="#" class="nav-link" id="view-admin-btn"><i class="fa-solid fa-gear"></i> Admin</a>
+
+            <a href="#"
+               class="nav-link active"
+               id="view-shop-btn">
+
+                <i class="fa-solid fa-house"></i>
+                Loja
+
+            </a>
+
+            <a href="#"
+               class="nav-link"
+               id="view-admin-btn">
+
+                <i class="fa-solid fa-gear"></i>
+                Admin
+
+            </a>
+
         </div>
+
     </nav>
 
-    <!-- Conteúdo Principal -->
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
     <main class="container">
-        
-        <!-- VISÃO DA LOJA (Catálogo + Carrinho) -->
+
+        <!-- =========================
+             VISÃO DA LOJA
+        ========================== -->
+
         <div id="shop-view" class="view-section active">
-            <!-- Barra de Consulta / Filtro -->
+
+            <!-- Pesquisa -->
+
             <div class="search-container">
+
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="search-input" placeholder="Pesquisar produtos por nome...">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Pesquisar produtos por nome..."
+                >
+
             </div>
+
+
+            <!-- Layout da loja -->
 
             <div class="shop-layout">
+
+                <!-- Produtos -->
+
                 <section class="products-section">
-                    <h2>Nossos Produtos</h2>
-                    <div id="products-grid" class="products-grid"></div>
+
+                    <h2>
+                        Nossos Produtos
+                    </h2>
+
+                    <div
+                        id="products-grid"
+                        class="products-grid">
+                    </div>
+
                 </section>
 
+
+                <!-- Carrinho -->
+
                 <aside class="cart-section">
-                    <h2><i class="fa-solid fa-cart-shopping"></i> Carrinho</h2>
-                    <div id="cart-items" class="cart-items"></div>
-                    <div class="cart-total">
-                        <h3>Total: <span id="cart-total-value">0.00€</span></h3>
+
+                    <h2>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Carrinho
+                    </h2>
+
+                    <div
+                        id="cart-items"
+                        class="cart-items">
                     </div>
-                    <button id="checkout-btn" class="btn btn-success w-100"><i class="fa-solid fa-check"></i> Finalizar Compra</button>
+
+
+                    <div class="cart-total">
+
+                        <h3>
+                            Total:
+                            <span id="cart-total-value">
+                                0.00€
+                            </span>
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        id="checkout-btn"
+                        class="btn btn-success w-100">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Finalizar Compra
+
+                    </button>
+
                 </aside>
+
             </div>
+
         </div>
 
-        <!-- VISÃO ADMINISTRATIVA (CRUD de Produtos) -->
+
+        <!-- =========================
+             VISÃO ADMINISTRATIVA
+        ========================== -->
+
         <div id="admin-view" class="view-section">
+
             <div class="admin-header">
-                <h2><i class="fa-solid fa-screwdriver-wrench"></i> Gestão de Inventário</h2>
-                <button class="btn btn-primary" id="open-add-modal-btn"><i class="fa-solid fa-plus"></i> Novo Produto</button>
+
+                <h2>
+
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    Gestão de Inventário
+
+                </h2>
+
+
+                <button
+                    class="btn btn-primary"
+                    id="open-add-modal-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo Produto
+
+                </button>
+
             </div>
-            
+
+
+            <!-- Tabela -->
+
             <div class="table-responsive">
+
                 <table class="admin-table">
+
                     <thead>
+
                         <tr>
-                            <th>Imagem</th>
-                            <th>Produto</th>
-                            <th>Preço</th>
-                            <th>Ações</th>
+
+                            <th>
+                                Imagem
+                            </th>
+
+                            <th>
+                                Produto
+                            </th>
+
+                            <th>
+                                Preço
+                            </th>
+
+                            <th>
+                                Ações
+                            </th>
+
                         </tr>
+
                     </thead>
-                    <tbody id="admin-table-body"></tbody>
+
+
+                    <tbody id="admin-table-body">
+
+                    </tbody>
+
                 </table>
+
             </div>
+
         </div>
+
     </main>
 
-    <!-- Janela Modal para Cadastro / Alteração -->
-    <div id="product-modal" class="modal">
+
+    <!-- =========================
+         MODAL DE PRODUTO
+    ========================== -->
+
+    <div
+        id="product-modal"
+        class="modal">
+
         <div class="modal-content">
-            <span class="close-modal" id="close-modal-btn">&times;</span>
-            <h2 id="modal-title">Cadastrar Produto</h2>
+
+            <span
+                class="close-modal"
+                id="close-modal-btn">
+
+                &times;
+
+            </span>
+
+
+            <h2 id="modal-title">
+
+                Cadastrar Produto
+
+            </h2>
+
+
             <form id="product-form">
-                <input type="hidden" id="product-id">
-                
+
+                <!-- ID oculto -->
+
+                <input
+                    type="hidden"
+                    id="product-id"
+                >
+
+
+                <!-- Nome -->
+
                 <div class="form-group">
-                    <label for="prod-name">Nome do Produto</label>
-                    <input type="text" id="prod-name" required placeholder="Ex: mouse Gamer">
+
+                    <label for="prod-name">
+
+                        Nome do Produto
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="prod-name"
+                        required
+                        placeholder="Ex: Mouse Gamer"
+                    >
+
                 </div>
-                
+
+
+                <!-- Preço -->
+
                 <div class="form-group">
-                    <label for="prod-price">Preço (€)</label>
-                    <input type="number" id="prod-price" step="0.01" required placeholder="0.00">
+
+                    <label for="prod-price">
+
+                        Preço (€)
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="prod-price"
+                        step="0.01"
+                        min="0"
+                        required
+                        placeholder="0.00"
+                    >
+
                 </div>
-                
+
+
+                <!-- Imagem -->
+
                 <div class="form-group">
-                    <label for="prod-image">URL da Imagem</label>
-                    <input type="url" id="prod-image" placeholder="https://exemplo.com">
+
+                    <label for="prod-image">
+
+                        URL da Imagem
+
+                    </label>
+
+                    <input
+                        type="url"
+                        id="prod-image"
+                        placeholder="https://exemplo.com/imagem.jpg"
+                    >
+
                 </div>
-                
-                <button type="submit" class="btn btn-success w-100" id="save-product-btn">Salvar</button>
+
+
+                <!-- Botão -->
+
+                <button
+                    type="submit"
+                    class="btn btn-success w-100"
+                    id="save-product-btn">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Salvar
+
+                </button>
+
             </form>
+
         </div>
+
     </div>
 
-    <!-- Rodapé -->
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
     <footer class="footer">
-        <p>&copy; 2026 TechStore. Todos os direitos reservados. Desenvolvido com HTML, CSS e JS.</p>
+
+        <p>
+
+            &copy; 2026 TechStore.
+            Todos os direitos reservados.
+            Desenvolvido com HTML, CSS e JS.
+
+        </p>
+
     </footer>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
